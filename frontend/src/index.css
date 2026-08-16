@@ -1,0 +1,1628 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #080b10;
+  color: #e8edf3;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* =========================================
+   APP
+   ========================================= */
+
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 80% 0%,
+      #13231c 0%,
+      transparent 35%
+    ),
+    #080b10;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.header {
+  height: 80px;
+  border-bottom: 1px solid #202832;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 48px;
+
+  background: rgba(8, 11, 16, 0.85);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  margin: 4px 0 0;
+  color: #7f8a97;
+  font-size: 13px;
+}
+
+.status,
+.gpu-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #38d996;
+
+  box-shadow:
+    0 0 12px rgba(56, 217, 150, 0.7);
+}
+
+/* =========================================
+   MAIN CONTAINER
+   ========================================= */
+
+.container {
+  width: min(1200px, calc(100% - 48px));
+
+  margin: 0 auto;
+
+  padding: 48px 0 80px;
+}
+
+/* =========================================
+   ERROR
+   ========================================= */
+
+.error {
+  padding: 14px 18px;
+  margin-bottom: 24px;
+
+  border: 1px solid #633333;
+
+  background: #241416;
+
+  color: #ff9a9a;
+
+  border-radius: 10px;
+}
+
+/* =========================================
+   GPU CARD
+   ========================================= */
+
+.gpu-card,
+.stat-card,
+.benchmark-card {
+  border: 1px solid #202832;
+
+  background: rgba(15, 19, 25, 0.9);
+
+  border-radius: 14px;
+}
+
+.gpu-card {
+  padding: 28px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  display: block;
+
+  color: #758190;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  margin-bottom: 8px;
+}
+
+.gpu-card h2 {
+  margin: 0;
+
+  font-size: 28px;
+}
+
+/* =========================================
+   BASIC STATS
+   ========================================= */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 16px;
+
+  margin: 16px 0;
+}
+
+.stat-card {
+  padding: 22px;
+}
+
+.stat-card strong {
+  font-size: 21px;
+}
+
+/* =========================================
+   TELEMETRY SECTION
+   ========================================= */
+
+.telemetry-section {
+  margin-top: 16px;
+
+  padding: 28px;
+
+  border: 1px solid #202832;
+
+  background: rgba(15, 19, 25, 0.9);
+
+  border-radius: 14px;
+}
+
+.section-title {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+}
+
+.section-title h2 {
+  margin: 0;
+
+  font-size: 22px;
+}
+
+.live-indicator {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #38d996;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.telemetry-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 14px;
+}
+
+.telemetry-card {
+  padding: 20px;
+
+  border: 1px solid #202832;
+
+  background: #0b0f14;
+
+  border-radius: 10px;
+}
+
+.telemetry-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.telemetry-header span,
+.telemetry-card.metric span {
+  color: #758190;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+}
+
+.telemetry-header strong {
+  font-size: 18px;
+}
+
+.telemetry-card.metric {
+  min-height: 105px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+.telemetry-card.metric strong {
+  font-size: 25px;
+}
+
+.progress-bar {
+  width: 100%;
+
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #1b232c;
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: #38d996;
+
+  transition: width 0.5s ease;
+}
+
+.telemetry-card small {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #66727f;
+
+  font-size: 11px;
+}
+
+/* =========================================
+   BENCHMARK CARD
+   ========================================= */
+
+.benchmark-card {
+  margin-top: 16px;
+
+  padding: 28px;
+}
+
+.section-heading {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 24px;
+}
+
+.section-heading h2 {
+  margin: 0 0 8px;
+
+  font-size: 22px;
+}
+
+.section-heading p {
+  margin: 0;
+
+  color: #7f8a97;
+
+  font-size: 14px;
+
+  max-width: 600px;
+
+  line-height: 1.5;
+}
+
+/* =========================================
+   BENCHMARK BUTTON
+   ========================================= */
+
+.benchmark-button {
+  border: 0;
+
+  border-radius: 9px;
+
+  padding: 13px 20px;
+
+  background: #38d996;
+
+  color: #07110c;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  min-width: 160px;
+
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+
+.benchmark-button:hover {
+  filter: brightness(1.08);
+
+  transform: translateY(-1px);
+}
+
+.benchmark-button:active {
+  transform: translateY(0);
+}
+
+.benchmark-button:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* =========================================
+   RUNNING STATE
+   ========================================= */
+
+.running {
+  margin-top: 28px;
+
+  padding: 18px;
+
+  border: 1px solid #202832;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #9ba6b2;
+}
+
+.loader {
+  width: 14px;
+  height: 14px;
+
+  border: 2px solid #34404b;
+
+  border-top-color: #38d996;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   BENCHMARK SUMMARY
+   ========================================= */
+
+.summary-section {
+  margin-top: 28px;
+
+  padding: 24px;
+
+  border: 1px solid #202832;
+
+  background: #0b0f14;
+
+  border-radius: 12px;
+}
+
+.summary-title {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.summary-title h3 {
+  margin: 0;
+
+  font-size: 18px;
+}
+
+.run-count {
+  color: #66727f;
+
+  font-size: 12px;
+}
+
+.summary-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 12px;
+}
+
+.summary-card {
+  padding: 18px;
+
+  border: 1px solid #202832;
+
+  background: #0f141a;
+
+  border-radius: 9px;
+}
+
+.summary-card span {
+  display: block;
+
+  color: #758190;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 10px;
+}
+
+.summary-card strong {
+  display: block;
+
+  font-size: 23px;
+
+  color: #e8edf3;
+}
+
+.summary-card small {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #66727f;
+
+  font-size: 11px;
+}
+
+/* =========================================
+   DETAILED RESULTS
+   ========================================= */
+
+.detailed-results {
+  margin-top: 32px;
+}
+
+.detailed-results .section-title {
+  margin-bottom: 16px;
+}
+
+.detailed-results h3 {
+  margin: 0;
+
+  font-size: 18px;
+}
+
+/*
+   The benchmark table has six columns.
+
+   Instead of squeezing them on smaller screens,
+   allow horizontal scrolling.
+*/
+
+.detailed-results .results-table {
+  overflow-x: auto;
+
+  scrollbar-width: thin;
+}
+
+.detailed-results .table-row {
+  min-width: 850px;
+}
+
+.detailed-results .detailed-row {
+  grid-template-columns:
+    1.4fr
+    1fr
+    1fr
+    1fr
+    1fr
+    1fr;
+}
+
+.detailed-results .table-header {
+  white-space: nowrap;
+}
+
+.detailed-results .detailed-row span {
+  display: flex;
+
+  align-items: center;
+
+  white-space: nowrap;
+}
+
+/* =========================================
+   GENERAL RESULTS TABLE
+   ========================================= */
+
+.results-table {
+  margin-top: 28px;
+
+  border: 1px solid #202832;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.table-row {
+  display: grid;
+
+  grid-template-columns:
+    1.3fr
+    1fr
+    1fr
+    1fr;
+
+  padding: 16px 18px;
+
+  border-top: 1px solid #202832;
+
+  font-size: 14px;
+}
+
+.table-row:first-child {
+  border-top: 0;
+}
+
+.table-header {
+  background: #11161d;
+
+  color: #758190;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.performance {
+  font-weight: 800;
+}
+
+/* =========================================
+   PERFORMANCE CHART
+   ========================================= */
+
+.chart-container {
+  margin-top: 32px;
+
+  padding: 24px;
+
+  border: 1px solid #202832;
+
+  border-radius: 10px;
+}
+
+.chart-container h3 {
+  margin: 0 0 20px;
+
+  font-size: 15px;
+}
+
+/* =========================================
+   EMPTY STATE
+   ========================================= */
+
+.empty-state {
+  text-align: center;
+
+  padding: 70px 20px 40px;
+
+  color: #7f8a97;
+}
+
+.empty-icon {
+  margin: 0 auto 16px;
+
+  width: 60px;
+  height: 60px;
+
+  border: 1px solid #29323c;
+
+  border-radius: 12px;
+
+  display: grid;
+
+  place-items: center;
+
+  color: #38d996;
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+.empty-state h3 {
+  color: #d7dde5;
+
+  margin: 0 0 8px;
+}
+
+.empty-state p {
+  margin: 0;
+
+  line-height: 1.5;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 950px) {
+  .summary-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .telemetry-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: min(
+      100% - 32px,
+      1200px
+    );
+  }
+
+  .header {
+    padding: 0 24px;
+  }
+
+  .gpu-card,
+  .section-heading {
+    flex-direction: column;
+  }
+
+  .benchmark-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: auto;
+
+    padding: 20px;
+
+    gap: 16px;
+  }
+
+  .container {
+    width: calc(100% - 24px);
+
+    padding-top: 24px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .telemetry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-title {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .section-heading {
+    gap: 20px;
+  }
+
+  .gpu-card {
+    gap: 20px;
+  }
+}
+
+.detailed-results .detailed-header {
+  grid-template-columns:
+    1.4fr
+    1fr
+    1fr
+    1fr
+    1fr
+    1fr;
+
+  min-width: 850px;
+
+  white-space: nowrap;
+}
+
+/* =========================================
+   BENCHMARK HISTORY
+   ========================================= */
+
+.history-section {
+  margin-top: 16px;
+  padding: 28px;
+
+  border: 1px solid #202832;
+
+  background: rgba(15, 19, 25, 0.9);
+
+  border-radius: 14px;
+}
+
+.history-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 24px;
+
+  margin-bottom: 24px;
+}
+
+.history-header h2 {
+  margin: 0 0 8px;
+
+  font-size: 22px;
+}
+
+.history-header p {
+  margin: 0;
+
+  color: #7f8a97;
+
+  font-size: 14px;
+}
+
+.clear-history-button {
+  border: 1px solid #4a3033;
+
+  background: transparent;
+
+  color: #e98d8d;
+
+  border-radius: 8px;
+
+  padding: 10px 14px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.clear-history-button:hover {
+  background: #241416;
+}
+
+/* =========================================
+   HISTORY TABLE
+   ========================================= */
+
+.history-table {
+  border: 1px solid #202832;
+
+  border-radius: 10px;
+
+  overflow-x: auto;
+}
+
+.history-row {
+  min-width: 760px;
+
+  display: grid;
+
+  grid-template-columns:
+    0.5fr
+    1.3fr
+    1.6fr
+    1fr
+    1.2fr;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 16px 18px;
+
+  border-top: 1px solid #202832;
+
+  font-size: 13px;
+}
+
+.history-row:first-child {
+  border-top: 0;
+}
+
+.history-table-header {
+  background: #11161d;
+
+  color: #758190;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.history-run {
+  color: #38d996;
+
+  font-weight: 800;
+}
+
+/* =========================================
+   HISTORY EMPTY
+   ========================================= */
+
+.history-empty {
+  text-align: center;
+
+  padding: 60px 20px;
+
+  color: #7f8a97;
+}
+
+.history-empty h3 {
+  color: #d7dde5;
+
+  margin: 0 0 8px;
+}
+
+.history-empty p {
+  margin: 0;
+
+  line-height: 1.5;
+}
+
+/* =========================================
+   HISTORY CHART
+   ========================================= */
+
+.history-chart {
+  margin-top: 28px;
+
+  padding: 24px;
+
+  border: 1px solid #202832;
+
+  border-radius: 10px;
+
+  background: #0b0f14;
+}
+
+.history-chart-title {
+  margin-bottom: 20px;
+}
+
+.history-chart-title h3 {
+  margin: 0;
+
+  font-size: 17px;
+}
+
+/* =========================================
+   RESPONSIVE HISTORY
+   ========================================= */
+
+@media (max-width: 700px) {
+  .history-header {
+    flex-direction: column;
+  }
+
+  .clear-history-button {
+    width: 100%;
+  }
+}
+
+.history-run {
+  color: #38d996;
+  font-weight: 800;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+/* =========================================
+   HISTORY ACTIONS
+   ========================================= */
+
+.history-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.export-history-button,
+.clear-history-button {
+  border-radius: 8px;
+
+  padding: 10px 14px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.export-history-button {
+  border: 1px solid #294b3d;
+
+  background: #0d1914;
+
+  color: #38d996;
+}
+
+.export-history-button:hover {
+  background: #12251c;
+}
+
+.clear-history-button {
+  border: 1px solid #4a3033;
+
+  background: transparent;
+
+  color: #e98d8d;
+}
+
+.clear-history-button:hover {
+  background: #241416;
+}
+
+@media (max-width: 700px) {
+  .history-actions {
+    width: 100%;
+
+    flex-direction: column;
+  }
+
+  .export-history-button,
+  .clear-history-button {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   IMPORT DATASET
+   ========================================= */
+
+.import-history-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #294b3d;
+
+  background: #0d1914;
+
+  color: #38d996;
+
+  border-radius: 8px;
+
+  padding: 10px 14px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.import-history-button:hover {
+  background: #12251c;
+}
+
+.import-history-button:has(input:disabled) {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+/* =========================================
+   IMPORT SUCCESS
+   ========================================= */
+
+.import-success {
+  margin-bottom: 16px;
+
+  padding: 12px 16px;
+
+  border: 1px solid #294b3d;
+
+  background: #0d1914;
+
+  color: #38d996;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+}
+
+/* ============================================================
+   GPU COMPARISON
+   ============================================================ */
+
+.comparison-section {
+  margin-top: 32px;
+  padding: 32px;
+  border: 1px solid #252b36;
+  border-radius: 18px;
+  background: #0d1117;
+}
+
+.comparison-header {
+  margin-bottom: 28px;
+}
+
+.comparison-header h2 {
+  margin: 6px 0 8px;
+  font-size: 28px;
+}
+
+.comparison-header p {
+  margin: 0;
+  color: #8b949e;
+  max-width: 650px;
+}
+
+
+/* ============================================================
+   SELECTORS
+   ============================================================ */
+
+.comparison-selectors {
+  display: grid;
+  grid-template-columns: 1fr 70px 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.comparison-selector {
+  padding: 22px;
+  border: 1px solid #252b36;
+  border-radius: 14px;
+  background: #11161d;
+}
+
+.comparison-selector select {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px 14px;
+
+  border: 1px solid #303744;
+  border-radius: 9px;
+
+  background: #0b0f14;
+  color: #f0f6fc;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+.comparison-selector select:focus {
+  border-color: #35d49a;
+}
+
+.selected-gpu-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  margin-top: 16px;
+}
+
+.selected-gpu-info strong {
+  font-size: 17px;
+  color: #f0f6fc;
+}
+
+.selected-gpu-info span {
+  color: #8b949e;
+  font-size: 12px;
+}
+
+.comparison-vs {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #18231f;
+  border: 1px solid #35d49a;
+
+  color: #35d49a;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+/* ============================================================
+   COMPARE BUTTON
+   ============================================================ */
+
+.comparison-action {
+  display: flex;
+  justify-content: center;
+
+  margin: 28px 0;
+}
+
+
+/* ============================================================
+   COMPARISON RESULTS
+   ============================================================ */
+
+.comparison-results {
+  margin-top: 28px;
+}
+
+
+/* ============================================================
+   OVERALL WINNER
+   ============================================================ */
+
+.comparison-winner {
+  padding: 34px;
+  margin-bottom: 22px;
+
+  text-align: center;
+
+  border: 1px solid #35d49a;
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(53, 212, 154, 0.08),
+      rgba(53, 212, 154, 0.015)
+    );
+}
+
+.comparison-winner h2 {
+  margin: 10px 0;
+
+  font-size: 32px;
+  color: #35d49a;
+}
+
+.comparison-winner p {
+  margin: 0;
+
+  color: #c9d1d9;
+  font-size: 15px;
+}
+
+
+/* ============================================================
+   GPU SCORE CARDS
+   ============================================================ */
+
+.comparison-gpu-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+
+  margin-bottom: 28px;
+}
+
+.comparison-gpu-card {
+  padding: 24px;
+
+  border: 1px solid #252b36;
+  border-radius: 14px;
+
+  background: #11161d;
+}
+
+.comparison-gpu-card h3 {
+  margin: 8px 0;
+
+  font-size: 20px;
+  color: #f0f6fc;
+}
+
+.comparison-gpu-card > span {
+  display: block;
+
+  color: #6e7681;
+  font-size: 12px;
+}
+
+.comparison-gpu-card strong {
+  display: block;
+
+  margin-top: 20px;
+
+  font-size: 25px;
+  color: #35d49a;
+}
+
+.comparison-gpu-card small {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #8b949e;
+}
+
+
+/* ============================================================
+   COMPARISON TABLE
+   ============================================================ */
+
+.comparison-table-container {
+  margin-top: 28px;
+
+  padding: 24px;
+
+  border: 1px solid #252b36;
+  border-radius: 14px;
+
+  background: #0f141b;
+}
+
+.comparison-table {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid #252b36;
+  border-radius: 10px;
+}
+
+.comparison-table-row {
+  display: grid;
+
+  grid-template-columns:
+    0.8fr
+    1.4fr
+    1.4fr
+    1fr
+    1.2fr;
+
+  align-items: center;
+
+  min-width: 750px;
+
+  border-bottom: 1px solid #252b36;
+}
+
+.comparison-table-row:last-child {
+  border-bottom: none;
+}
+
+.comparison-table-row > span {
+  padding: 16px;
+
+  color: #c9d1d9;
+
+  font-size: 13px;
+}
+
+.comparison-table-header {
+  background: #111820;
+}
+
+.comparison-table-header > span {
+  color: #8b949e;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.06em;
+}
+
+.comparison-winner-cell {
+  color: #35d49a !important;
+
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   COMPARISON CHART
+   ============================================================ */
+
+.comparison-chart {
+  margin-top: 28px;
+
+  padding: 24px;
+
+  border: 1px solid #252b36;
+  border-radius: 14px;
+
+  background: #0f141b;
+}
+
+
+/* ============================================================
+   AI ANALYSIS
+   ============================================================ */
+
+.ai-analysis-placeholder {
+  margin-top: 28px;
+
+  padding: 28px;
+
+  border: 1px solid #303744;
+  border-radius: 14px;
+
+  background: #11161d;
+}
+
+.ai-analysis-placeholder h3 {
+  margin: 8px 0;
+
+  font-size: 21px;
+}
+
+.ai-analysis-placeholder p {
+  max-width: 650px;
+
+  color: #8b949e;
+
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   COMPARISON EMPTY
+   ============================================================ */
+
+.comparison-empty {
+  padding: 50px 20px;
+
+  text-align: center;
+
+  border: 1px dashed #303744;
+  border-radius: 14px;
+
+  margin-top: 20px;
+}
+
+.comparison-empty h3 {
+  margin: 12px 0 8px;
+}
+
+.comparison-empty p {
+  margin: 0 auto;
+
+  max-width: 500px;
+
+  color: #8b949e;
+
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+  .comparison-selectors {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-vs {
+    margin: 0 auto;
+  }
+
+  .comparison-gpu-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .comparison-section {
+    padding: 20px;
+  }
+
+  .comparison-winner {
+    padding: 25px 15px;
+  }
+
+  .comparison-winner h2 {
+    font-size: 24px;
+  }
+
+}
+
+/* ============================================================
+   GEMINI AI
+   ============================================================ */
+
+.ai-analysis-placeholder {
+  margin-top: 28px;
+  padding: 28px;
+
+  border: 1px solid #303744;
+  border-radius: 14px;
+
+  background: #11161d;
+}
+
+.ai-analysis-placeholder h3 {
+  margin: 8px 0;
+  font-size: 22px;
+}
+
+.ai-analysis-placeholder > p {
+  max-width: 700px;
+
+  color: #8b949e;
+
+  line-height: 1.6;
+}
+
+.ai-analysis-result {
+  margin-top: 28px;
+
+  border: 1px solid #303744;
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  background: #0b1016;
+}
+
+.ai-analysis-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 20px 24px;
+
+  border-bottom: 1px solid #252b36;
+
+  background: #111820;
+}
+
+.ai-analysis-header h4 {
+  margin: 6px 0 0;
+
+  font-size: 20px;
+
+  color: #f0f6fc;
+}
+
+.ai-model {
+  padding: 7px 12px;
+
+  border: 1px solid #35d49a;
+
+  border-radius: 20px;
+
+  color: #35d49a;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+.ai-analysis-text {
+  padding: 24px;
+}
+
+.ai-analysis-text h5 {
+  margin: 22px 0 10px;
+
+  color: #35d49a;
+
+  font-size: 12px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.ai-analysis-text h5:first-child {
+  margin-top: 0;
+}
+
+.ai-analysis-text p {
+  margin: 7px 0;
+
+  color: #c9d1d9;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+.ai-spacer {
+  height: 5px;
+}
